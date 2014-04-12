@@ -33,14 +33,20 @@ ROUTINES
   formatted
     Returns the number formatted with leading 0 and spaces.
 
+    This can be used for displaying the number in "standard" format.
+
   packed
-    Returns the number with leading 0, no spaces.
+    Returns the number with a leading 0 but no spaces.
+
+    This can be useful for databases but see plain below.
 
   number
     Returns the number in international format starting with +.
 
   plain
     Returns the number in international format without the +.
+
+    This is usually the best way to store the number onto a database.
 
   uk
     Returns a boolean: true if it is a valid UK number

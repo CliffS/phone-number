@@ -99,6 +99,8 @@ sub new
 
 Returns the number formatted with leading 0 and spaces.
 
+This can be used for displaying the number in "standard" format.
+
 =cut
 
 sub formatted
@@ -109,7 +111,9 @@ sub formatted
 
 =head2 packed
 
-Returns the number with leading 0, no spaces.
+Returns the number with a leading 0 but no spaces.
+
+This can be useful for databases but see L<plain> below.
 
 =cut
 
@@ -135,6 +139,8 @@ sub number
 =head2 plain
 
 Returns the number in international format without the +.
+
+This is usually the best way to store the number onto a database.
 
 =cut
 
