@@ -6,16 +6,50 @@ use 5.10.0;
 
 =head1 NAME
 
-Phone::Number - Module to halde a phone number from a UK-centric
+Phone::Number - Module to hold a phone number from a UK-centric
 point of view.
+
+head1 VERSION
+
+Version 1.0.0
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = v1.0.0;
 
 use Carp;
 
 use overload q("") => 'number';
+
+=head1 SYNOPSYS
+
+    use Phone::Number;
+    
+    my $num = new Phone::Number('02002221666');
+    print $num->formatted;    # 020 0222 1666
+    print $num->packed;       # 02002221666
+    print $num->number;       # +442002221666
+    print $num->plain;        # 442002221666
+    print $num->uk ? "yes" : "no"; # yes
+
+=head1 EXPORT
+
+Nothing is exported
+
+=head1 ROUTINES
+
+=head2 new
+
+Creates a new, immutable object using any unambiguous phone
+number format.
+
+    my $num = new Phone::Number('02002221666');
+    my $num = new Phone::Number('2002221666');
+    my $num = new Phone::Number('442002221666');
+    my $num = new Phone::Number('+442002221666');
+    my $new = new Phone::Number($num);
+
+=cut
 
 # Passed a string or a Number object.  If the latter, simply returns it.
 sub new
@@ -61,36 +95,96 @@ sub new
     bless $self, $class;
 }
 
-sub formatted	    # the number formatted with leading 0 and spaces
+=head2 formatted
+
+Returns the number formatted with leading 0 and spaces.
+
+=cut
+
+sub formatted
 {
     my $self = shift;
     return $self->{formatted};
 }
 
-sub packed	    # the number with leading 0, no spaces
+=head2 packed
+
+Returns the number with leading 0, no spaces.
+
+=cut
+
+sub packed
 {
     my $self = shift;
     (my $packed = $self->formatted) =~ s/\s+//g;
     return $packed;
 }
 
-sub number	    # the number in international format starting with +
+=head2 number
+
+Returns the number in international format starting with +.
+
+=cut
+
+sub number
 {
     my $self = shift;
     return $self->{number};
 }
 
-sub plain	    # the number in international format without the +
+=head2 plain
+
+Returns the number in international format without the +.
+
+=cut
+
+sub plain
 {
     my $self = shift;
     (my $plain = $self->{number}) =~ s/^\+//;
     return $plain;
 }
 
-sub uk		    # boolean: is it a valid UK number
+=head2 uk
+
+Returns a boolean: true if it is a valid UK number
+
+=cut
+
+sub uk
 {
     my $self = shift;
     return $self->{valid};
 }
+
+=head1 AUTHOR
+
+Cliff Stanford, C<< <cpan@may.be> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to
+C<bug-phone-number at rt.cpan.org>, or through
+the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Phone-Number>.
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Phone::Number
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright 2014 Cliff Stanford.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+=cut
+
+
 
 1;
