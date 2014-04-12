@@ -46,7 +46,7 @@ This can be used for displaying the number in "standard" format.
 
 Returns the number with a leading 0 but no spaces.
 
-This can be useful for databases but see [plain](http://search.cpan.org/perldoc?plain) below.
+This can be useful for databases but see ["plain"](#plain) below.
 
 ## number
 

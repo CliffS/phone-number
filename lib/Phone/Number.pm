@@ -113,7 +113,7 @@ sub formatted
 
 Returns the number with a leading 0 but no spaces.
 
-This can be useful for databases but see L<plain> below.
+This can be useful for databases but see L</plain> below.
 
 =cut
 
