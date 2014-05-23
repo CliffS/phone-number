@@ -2,6 +2,7 @@ package Phone::Number;
 
 use strict;
 use warnings;
+no if $^V ge v5.18.0 && $^V lt v5.19.0, warnings => "experimental";
 use 5.10.0;
 
 =head1 NAME
