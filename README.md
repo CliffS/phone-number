@@ -5,7 +5,7 @@ point of view.
 
 head1 VERSION
 
-Version 1.0.0
+Version 1.1.0
 
 # SYNOPSYS
 
@@ -41,6 +41,8 @@ number format.
 Returns the number formatted with leading 0 and spaces.
 
 This can be used for displaying the number in "standard" format.
+
+The raw object stringifies to the formatted version.
 
 ## packed
 
