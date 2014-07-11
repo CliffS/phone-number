@@ -5,8 +5,16 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 1;
+use Test::More tests => 6;
 BEGIN { use_ok('Phone::Number') };
+
+my $number = new Phone::Number('02002221666');
+
+is($number->formatted, '020 0222 1666', 'Formatted');
+is($number->packed,    '02002221666',   'Packed');
+is($number->number,    '+442002221666', 'Number');
+is($number->plain,     '442002221666',  'Plain');
+is("$number",	       '020 0222 1666',   'Stringify');
 
 #########################
 
