@@ -20,6 +20,7 @@ our $VERSION = v1.1.0;
 
 use Carp;
 
+use experimental qw(switch);
 use overload q("") => 'formatted';
 
 =head1 SYNOPSYS
