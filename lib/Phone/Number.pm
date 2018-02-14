@@ -12,11 +12,11 @@ point of view.
 
 head1 VERSION
 
-Version 1.1.0
+Version v1.1.2
 
 =cut
 
-use version 0.77; our $VERSION = qv('1.1.1');
+use version 0.77; our $VERSION = qv('v1.1.2');
 
 use Carp;
 
