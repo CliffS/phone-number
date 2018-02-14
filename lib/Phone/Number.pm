@@ -16,7 +16,7 @@ Version 1.1.0
 
 =cut
 
-our $VERSION = v1.1.0;
+use version 0.77; our $VERSION = qv('1.1.1');
 
 use Carp;
 
