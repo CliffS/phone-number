@@ -3,7 +3,7 @@
 Phone::Number - Module to hold a phone number from a UK-centric
 point of view.
 
-head1 VERSION
+# VERSION
 
 Version 1.1.0
 
